@@ -1,0 +1,19 @@
+function palindrome(str) {
+   let str2="";
+   for(let n=0;n<str.length;n++){
+   
+    str2=str2.concat(str[str.length-1-n]);
+    
+   }
+
+   let strLow=str.toLowerCase().replace(/[\W_]/g, '');
+    let str2Low=str2.toLowerCase().replace(/[\W_]/g, '');
+
+    if(strLow===str2Low){
+return true;
+    } else{
+      return false;
+    }
+   }
+  
+palindrome("eye");

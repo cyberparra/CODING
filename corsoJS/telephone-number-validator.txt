@@ -1,0 +1,33 @@
+function telephoneCheck(str) {
+  let k=0;
+for(var n=0;n<str.length;n++){
+  
+    if(str.charCodeAt(n)==40 || str.charCodeAt(n)==41){
+       k++
+       }
+    }
+    if(k==1){
+    return false
+  }
+
+
+  if(str.at(0)==1 && str.at(1)==" "){
+   
+      str=str.slice(2,str.length);
+  } else if(str.at(0)==1){
+   
+      str=str.slice(1,str.length);
+  }
+    
+
+  var re=/^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/
+   var check=re.test(str);
+   if(check){
+      return true;
+   } else {
+      return false
+   }
+  }
+
+
+telephoneCheck("555-555-5555");

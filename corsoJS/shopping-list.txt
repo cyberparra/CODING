@@ -1,0 +1,9 @@
+const myList =[ 
+  ["milk",1],
+  ["bread",2],
+  ["potato",3],
+  ["salt",0.5],
+  ["potato",3],
+  ["tomato",2.5],
+  ["cheese",1],
+  ];

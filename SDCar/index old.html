@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Graph Editor</title>
+        <link href="styles.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <h1>Graph Editor          
+        </h1>
+        <canvas id="myCanvas"></canvas>
+        <div id="console">
+            <button onclick="addRandPoi()">Add Point</button>
+            <button onclick="addRandSeg()">Add Segment</button>
+            <button onclick="remRandSeg()">Remove Segment</button>
+            <button onclick="remRandPoi()">Remove Point</button>
+            <button onclick="cleanCanva()">Clean</button>
+
+        </div>
+        
+
+        </script>
+
+
+        <script src="js/math/graph.js"></script>
+        <script src="js/primitives/point.js"></script>
+        <script src="js/primitives/segment.js"></script>
+
+
+        <script>
+
+            function cleanCanva(){
+               graph.dispose();
+               clearCanva();
+            }
+
+            function clearCanva(){
+                //refresh the canvas
+                ctx.clearRect(0,0,myCanvas.width,myCanvas.height);
+                //redraw the graph
+                graph.draw(ctx);
+
+            }
+
+            function remRandSeg(){
+                if(graph.segments.length<1){
+                    console.log("no segments");
+                    return;
+                }
+                const index=Math.floor(Math.random()*graph.segments.length);
+                graph.removeSegments(graph.segments[index]);
+                clearCanva();
+
+            }
+
+            function remRandPoi(){
+
+                if(graph.points.length<1){
+                    console.log("no points");
+                    return;
+                }
+
+                const index3=Math.floor(Math.random()*graph.points.length);
+                graph.removePoi(graph.points[index3]);
+                clearCanva();
+            }
+
+            function addRandSeg(){
+               const index1=Math.floor(Math.random()*graph.points.length);
+               const index2=Math.floor(Math.random()*graph.points.length);
+               const success=graph.tryAddSegment(
+                    new Segment(graph.points[index1],graph.points[index2])
+                );
+                clearCanva();
+            
+            }
+
+            function addRandPoi(){
+                const success = graph.tryAddPoint(
+                    new Point(
+                        Math.random()*myCanvas.width,
+                        Math.random()*myCanvas.height,
+                    )
+                    
+                )
+                clearCanva();
+            }
+            myCanvas.width=600;
+            myCanvas.height=600;
+
+            const ctx=myCanvas.getContext("2d");
+
+            const p1=new Point(150,150);
+            const p2=new Point(150,350);
+            const p3=new Point(450,100);
+            const p4=new Point(100,300);
+
+            const s1=new Segment(p1,p2);
+            const s2=new Segment(p1,p3);
+            const s3=new Segment(p1,p4);
+            const s4=new Segment(p2,p4);
+            const s5=new Segment(p4,p3);
+
+
+            const graph=new Graph([p1,p2,p3,p4], [s1,s2,s3,s4,s5]);
+            graph.draw(ctx);
+
+
+        </script>
+    </body>
+</html>
