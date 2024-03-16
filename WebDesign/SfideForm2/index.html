@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="styles.css" rel="stylesheet"/>
+</head>
+
+<body>
+    <div class="container">
+        <form method="post" action="https://script.google.com/macros/s/AKfycbzJrmfbtH9mxDjgRt31ovJrBWXvrSGLu9gy_G-ywao6eHTMVHrfJ8a1w-pCGCw2DHhUvA/exec  " name="form-sfide">
+            <h1>Modulo Sfide</h1>
+            <input type="text" name="nome" placeholder="Nome">
+            <input type="text" name="link" placeholder="Link">
+            <textarea name="descrizone" rows="7" placeholder="Descrivi il tuo progetto"></textarea>
+            <fieldset>
+                <legend>Seleziona la sfida che vuoi caricare</legend>
+                
+                 <input type="checkbox" id="sfida1" name="sfide" value="sfida1" >       
+                <label for="sfida1">SFIDA1</label>
+
+                <input type="checkbox" id="sfida2" name="sfide" value="sfida2" >       
+                <label for="sfida2">SFIDA2</label>
+                <input type="checkbox" id="sfida3" name="sfide" value="sfida3" >       
+                <label for="sfida3">SFIDA3</label>
+                
+                </fieldset>
+
+
+            <input type="submit" value="Inserisci" itemid="submit">
+        </form>
+    </div>
+    <script src="googleSheet.js"></script>
+</body>
+</html>
