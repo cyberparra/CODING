@@ -6,5 +6,6 @@
 6) salva ed esegui lo scrpit (autorizza)
 7) fai il deploy, imposta nella configurazione il tipo Web App (autorizza)
 8) prendi il link del deploy e mettilo nel campo *action* nell'index.html (<form method="post" action=)
-9) impposta le intestazioni delle colonne del tuo sheet con quelle degli input name nell'HTML
+9) lo stesso link va nella variabile *scriptURL* del **googleSheet.js**
+10) impposta le intestazioni delle colonne del tuo sheet con quelle degli input name nell'HTML
 
